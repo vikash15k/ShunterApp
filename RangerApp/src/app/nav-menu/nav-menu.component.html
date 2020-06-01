@@ -1,0 +1,166 @@
+<!--<div class='main-nav'>
+
+    <div>
+        <div class='navbar-header' style="background-color:white ;padding-bottom:2px;padding-top:2px">
+            <div [ngClass]='{ "in": isExpanded }' style="position: relative;" (click)='toggle()'>
+                <img src="dist/assets/image/posten.png" style="height:5vh" />&nbsp;
+                <img src="dist/assets/image/bring.png" style="height:5vh" />
+
+            </div>
+            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>-->
+<!--<a class='navbar-brand' [routerLink]="['/dashboard/1']">RangersBiler</a>-->
+<!--</div>
+<div class='clearfix'></div>
+<div class='navbar-collapse collapse' [ngClass]='{ "out": isExpanded }'>
+    <ul class='nav navbar-nav'>-->
+<!--<li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+    <a [routerLink]='["/"]' (click)='collapse()'>
+        <span class='glyphicon glyphicon-home'></span> Home
+    </a>
+</li>-->
+<!--<li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]="['/dashboard/1']">
+                        <span class='glyphicon glyphicon-home' height="40" width="40"></span> Dashboard
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/dashboard/2"]'>
+                        <img alt="" src="dist/assets/image/icon_train.png" height="25" width="25" class="avatar" /> Train Incoming
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/dashboard/8"]'>
+                        <img alt="" src="dist/assets/image/icon_train.png" height="25" width="25" class="avatar" /> Train Outgoing
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/dashboard/3"]' (click)='collapse()'>
+                        <img alt="" src="dist/assets/image/icon_hub.png" height="25" width="25" class="avatar" /> Terminal Incoming
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/dashboard/9"]' (click)='collapse()'>
+                        <img alt="" src="dist/assets/image/icon_hub.png" height="25" width="25" class="avatar" /> Terminal Outgoing
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/dashboard/4"]' (click)='collapse()'>
+                        <img alt="" src="dist/assets/image/icons_loading.png" height="25" width="25" class="avatar" /> Loading
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/dashboard/5"]' (click)='collapse()'>
+                        <img alt="" src="dist/assets/image/icon_unloading.png" height="25" width="25" class="avatar" /> UnLoading
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/dashboard/6"]' (click)='collapse()'>
+                        <img alt="" src="dist/assets/image/icon_parking.png" height="25" width="25" class="avatar" /> Parking
+                    </a>
+                </li>
+                <li *ngIf="currentUser!=undefined" [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/FreightForwarder"]' (click)='collapse()'>
+                        <span class="glyphicon glyphicon-list-alt" height="30" width="30"></span> Freight Forwarder
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/Login"]' (click)='logout()'>
+                        <span class="glyphicon glyphicon-log-out" height="30" width="30"></span> Logout
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>-->
+<div>
+    <div class="sidenav_container" [@onSideNavChange]="sideNavState ? 'open' : 'close'">
+        <div fxLayout="column" fxLayoutGap="10px">
+
+            <div class="user_menu">
+                <mat-nav-list>
+                    <a mat-list-item>
+                        <img class="jim " src="dist/assets/image/posten.png" alt="">
+                        <span [@animateText]="linkText ? 'show' : 'hide'"> </span>
+                    </a>
+                </mat-nav-list>
+                <mat-divider></mat-divider>
+            </div>
+
+            <div>
+
+                <!--<a mat-list-item *ngFor="let page of pages">
+
+                    <mat-icon style="padding-right:5px;">{{page?.icon}}</mat-icon>
+                    <span [@animateText]="linkText ? 'show' : 'hide'">{{ page?.name }} </span>
+                </a>-->
+                <mat-nav-list>
+
+                    <a mat-list-item [routerLinkActive]='["link-active"]' [routerLink]="['/dashboard/1']">
+                        <img alt="" src="dist/assets/image/icon-dashboard.png" height="23" width="23" class="avatar black-img" />
+                        <span [@animateText]="linkText ? 'show' : 'hide'">Dashboard</span>
+                    </a>
+                    <a mat-list-item [routerLinkActive]='["link-active"]' [routerLink]='["/dashboard/2"]'>
+                        <img alt="" src="dist/assets/image/icon_train.png" height="25" width="25" class="avatar black-img" />
+                        <span [@animateText]="linkText ? 'show' : 'hide'">Train Incoming</span>
+                    </a>
+                    <a mat-list-item [routerLinkActive]='["link-active"]' [routerLink]='["/dashboard/8"]'>
+                            <img alt="" src="dist/assets/image/icon_train.png" height="25" width="25" class="avatar black-img" />
+                            <span [@animateText]="linkText ? 'show' : 'hide'">Train Outgoing</span>
+                    </a>
+
+                    <a mat-list-item [routerLinkActive]='["link-active"]' [routerLink]='["/dashboard/3"]' (click)='collapse()'>
+                        <img alt="" src="dist/assets/image/icon_hub.png" height="25" width="25" class="avatar black-img" />
+                        <span [@animateText]="linkText ? 'show' : 'hide'">Terminal Incoming</span>
+                    </a>
+                    <a mat-list-item [routerLinkActive]='["link-active"]' [routerLink]='["/dashboard/9"]' (click)='collapse()'>
+                        <img alt="" src="dist/assets/image/icon_hub.png" height="25" width="25" class="avatar black-img" />
+                        <span [@animateText]="linkText ? 'show' : 'hide'">Terminal Outgoing</span>
+                    </a>
+                    <a mat-list-item [routerLinkActive]='["link-active"]' [routerLink]='["/dashboard/4"]' (click)='collapse()'>
+                        <img alt="" src="dist/assets/image/icons_loading.png" height="25" width="25" class="avatar black-img" />
+                        <span [@animateText]="linkText ? 'show' : 'hide'">Loading</span>
+                    </a>
+                    <a mat-list-item [routerLinkActive]='["link-active"]' [routerLink]='["/dashboard/5"]' (click)='collapse()'>
+                        <img alt="" src="dist/assets/image/icon_unloading.png" height="25" width="25" class="avatar black-img" />
+                        <span [@animateText]="linkText ? 'show' : 'hide'">UnLoading</span>
+                    </a>
+                    <a mat-list-item [routerLinkActive]='["link-active"]' [routerLink]='["/dashboard/6"]' (click)='collapse()'>
+                        <img alt="" src="dist/assets/image/icon_parking.png" height="25" width="25" class="avatar black-img" />
+                        <span [@animateText]="linkText ? 'show' : 'hide'">Parking</span>
+                    </a>
+
+                    <a mat-list-item [routerLinkActive]='["link-active"]' [routerLink]='["/FreightForwarder"]' (click)='collapse()'>
+                        <img alt="" src="dist/assets/image/icon-FF.png" height="25" width="25" class="avatar black-img" />
+                        <span [@animateText]="linkText ? 'show' : 'hide'">Freight Forwarder</span>
+                    </a>
+                    <a mat-list-item [routerLinkActive]='["link-active"]' [routerLink]='["/Login"]' (click)='logout()'>
+                        <img alt="" src="dist/assets/image/icon-logout.png" height="25" width="25" class="avatar black-img" />
+                        <span [@animateText]="linkText ? 'show' : 'hide'">Logout</span>
+                    </a>
+
+                </mat-nav-list>
+
+            </div>
+        </div>
+
+        <span class="spacer"></span>
+        <div class="footer-icon" >
+            <div fxLayout="row" fxLayoutAlign="end center" style="padding: 0px 10px;">
+                <button mat-icon-button (click)="onSinenavToggle()">
+                    <img *ngIf="sideNavState" alt="" src="dist/assets/image/icon-back.png" height="25" width="25" class="avatar black-img" />
+                    <img *ngIf="!sideNavState" alt="" src="dist/assets/image/icon-front.png" height="25" width="25" class="avatar black-img" />
+                    <!--<mat-icon *ngIf="sideNavState">arrow_left</mat-icon>
+            <mat-icon *ngIf="!sideNavState">arrow_right</mat-icon>-->
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

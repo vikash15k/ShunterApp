@@ -1,0 +1,282 @@
+
+<div style="padding-left:1%" *ngIf="!isVisible">
+
+    <p style="display:none">
+        {{locationid}}
+    </p>
+
+    <!--<div>
+      <span class="glyphicon glyphicon-search" aria-hidden="false"></span>
+      <input type="search" placeholder="Search..." (input)="SearchData($event.target.value)" />
+    </div>-->
+
+    <table style="width:100%">
+        <tr>
+            <td style="width:15%">
+                <mat-form-field>
+                    <mat-label>Location</mat-label>
+                    <mat-select [(value)]="selected" [(ngModel)]="selected" (ngModelChange)="onChangeLocation()">
+                        <mat-option *ngFor="let loc of locations" [value]="loc.Id">
+                            {{loc.TerminalName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+            <td style="width:4%;" align="center"><mat-icon matTooltip="Search with Container ID,Location,Route Number, Driver Name or Color" class='glyphicon glyphicon-info-sign'></mat-icon></td>
+            <td>
+                <app-search [(searchModel)]="searchModel"></app-search>
+            </td>
+            <td style="text-align:right;width:25%">
+                <span *ngIf="currentUser!=undefined" style="color: lightcoral;"> Welcome, {{currentUser.Name}}</span>
+            </td>
+        </tr>
+    </table>
+    <p *ngIf="!events">
+        Loading...
+    </p>
+    <ul class="list-inline" style="list-style-type:none;">
+
+        <li class="list-inline-item" *ngFor="let element of events| containerFilter: searchModel">
+            <mat-card class="example-card" (click)="DisplayDiv(element)">
+                <mat-card-header style="text-align: left;" ngClass={{element.PriorityClass}}>
+                    <mat-card-title style="border:0px solid black;margin:0% 0%;padding-left:0%;text-align:left">
+                        {{element.Contbilnr}}
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div style="border:0px solid black;margin:0% 0%;padding-left:1%;text-align:left">
+                        <img alt="" src={{element.src}} height="25" width="25" style="float: left" />
+                        <i class='fas fa-long-arrow-alt-left' style='padding:1px 2px;font-size:26px;vertical-align:central;float: left;outline-width:50px' *ngIf="element.isIncoming"></i><span style="margin-top:5px;font-size:14px;vertical-align:middle;display:inline-block">{{ element.isIncoming?element.Fra:''}}</span>
+                        <i class='fas fa-long-arrow-alt-right' style='padding:1px 2px;font-size:26px;vertical-align:central;float: left' *ngIf="!element.isIncoming"></i><span style="margin-top:5px;font-size:14px;vertical-align:middle;display:inline-block">{{element.isIncoming?'':element.Til}}</span>
+                    </div>
+                    <div style="width:100%;margin:0% 0%;text-align:center;display:inline-block">{{element.Togrutenummer==undefined?'':element.Togrutenummer}}</div>
+                    <div style="width:100%;margin:0% 0%;text-align:center;display:inline-block"> {{element.Name==undefined?'Unassigned':element.Name}}</div>
+                    <hr style="margin:10px 0px" [ngStyle]="{'height':'0px','border-top': '4px solid '+ element.colorstyle }" />
+                </mat-card-content>
+            </mat-card>
+        </li>
+
+    </ul>
+
+    <div id="footer" *ngIf="events">
+        <div>
+            <div class='col-md-2 legend-title text-center'>Legends</div>
+            <div class='col-md-8 legend-scale legend-labels'>
+                <img width="20" height="20" style="background: gray" /><span style="color: black;padding-right:2%">
+                    Unassigned
+                </span>
+                <img width="20" height="20" style="background:Yellow;" /><span style="color:black;padding-right:2%">
+                    Assigned
+                </span>
+                <img width="20" height="20" style="background:orange;" /><span style="color:black;padding-right:2%">
+                    Accepted
+                </span>
+                <img width="20" height="20" style="background:red;" /><span style="color:black;padding-right:2%"> Rejected</span>
+                <img width="20" height="20" style="background:blue;" /><span style="color:black;padding-right:2%">
+                    In
+                    Progress
+                </span>
+                <img width="20" height="20" style="background:Green;" /><span style="color:black;padding-right:2%">
+                    Completed
+                </span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isVisible">
+    <!-- Page Container -->
+    <div class="w3-container w3-content" style="max-width:1400px;margin-top:0px">
+        <!-- The Grid -->
+        <div class="w3-row">
+            <!-- Left Column -->
+            <div class="w3-col m3">
+                <!-- Profile -->
+                <div class="w3-card-2 w3-round w3-white">
+                    <div class="w3-container">
+                        <h4 class="w3-center">{{container.Contbilnr}}</h4>
+                        <p class="w3-center"><img src="{{container.src}}" class="w3-circle" height="50" width="50" alt="Avatar"></p>
+                        <hr>
+                        <p><i class="fa fa-home w3-margin-right w3-text-theme"></i>Source: <b>{{container.Fra}}</b></p>
+                        <p><i class="fa fa-industry w3-margin-right w3-text-theme"></i>Destination: <b>{{container.Til}}</b></p>
+                        <p><i class="fa fa-cube w3-margin-right w3-text-theme"></i>Produksjonsmodell: <b>{{container.Produksjonsmodell}}</b></p>
+                        <p><i class="fa fa-train w3-margin-right w3-text-theme"></i>Tog rute: <b>{{container.Togrutenummer}}</b></p>
+                        <p><i class="fa fa-bus w3-margin-right w3-text-theme"></i>Tur nr: <b>{{container.Turnr}}</b></p>
+                        <p><i class="fa fa-envelope w3-margin-right w3-text-theme"></i>Content: <b>{{container.Innholdsbeskrivelse}}</b></p>
+
+                    </div>
+                </div>
+                <br>
+
+
+                <div class="w3-card-2 w3-round">
+                    <div class="w3-container w3-white">
+                        <p>Assigned to</p>
+                        <div id="Demo1" class="w3-container-content w3-container">
+                            <p><b>(TODO)</b></p>
+                        </div>
+                        <p>Departure Date</p>
+                        <div id="Demo2" class="w3-container-content w3-container">
+                            <p><b>{{container.Avgdato|date :  "dd.MM.y  h:mm a"}}</b></p>
+                        </div>
+                        <p>Arrival Date</p>
+                        <div id="Demo3" class="w3-container-content w3-container">
+                            <p><b>{{container.Ankdato|date :  "dd.MM.y  h:mm a"}}</b></p>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+
+
+                <div class="w3-card-2 w3-round w3-white ">
+                    <div class="w3-container">
+                        <p>Current Status</p>
+                        <div id="Demo4" class="w3-container-content w3-container">
+                            <p><b>TODO (Show Location )</b></p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <!-- Alert Box -->
+                <!--<div class="w3-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+                    <span onclick="this.parentElement.style.display='none'" class="w3-hover-text-grey w3-closebtn">×</span>
+                    <p><strong>Hey!</strong></p>
+                    <p>People are looking at your profile. Find out who.</p>
+                </div>-->
+                <!-- End Left Column -->
+            </div>
+
+            <!-- Middle Column -->
+            <div class="w3-col m6">
+
+                <div class="w3-row-padding">
+                    <div class="w3-col m12">
+                        <div class="w3-card-2 w3-round w3-white">
+                            <div class="w3-container ">
+                                <h6 class="w3-opacity">Assign Container</h6>
+                                <p contenteditable="false" class="w3-border w3-padding">{{driver==undefined?'Select Driver from the below list':driver.Name}}</p>
+
+                                <div *ngIf="bindinward" class="text-left">
+                                    Moving To:
+                                    <mat-form-field>
+                                        <mat-select [(ngModel)]="inwardselected">
+                                            <mat-option *ngFor="let step of bindinward" [value]="step.value">
+                                                {{step.viewValue}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div *ngIf="bindoutward" class="text-left">
+                                    Moving To:
+                                    <mat-form-field>
+                                        <mat-select [(ngModel)]="outwardselected">
+                                            <mat-option *ngFor="let step of bindoutward" [value]="step.value">
+                                                {{step.viewValue}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+
+
+                                <div *ngIf="bindstatus" class="text-left">
+                                    Status :
+                                    <mat-form-field>
+                                        <mat-select [(ngModel)]="bindstatusselected">
+                                            <mat-option *ngFor="let step of bindstatus" [value]="step.value">
+                                                {{step.viewValue}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="text-left">
+                                    Message to Driver (optional): 
+                                    <!--<input type="text" [(ngModel)]="message">-->
+                                    <mat-form-field>
+                                        <textarea matInput placeholder="Comment" [(ngModel)]="message"></textarea>
+                                    </mat-form-field>
+
+                                </div>
+                                <input (click)="create()" type="button" value="Assign" class="btn btn-primary w3-right" />
+
+                                <!--<button type="button" class="w3-btn w3-theme w3-right"><i class="fa fa-pencil"></i> Assign</button>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-card-2 w3-white w3-round w3-margin">
+                    <!--<div class="col-md-5" style="margin-left: 2%;margin-top:1%" *ngIf="drivers ">-->
+                    <div class="w3-container ">
+                        <p>Drivers</p>
+                        <div class="row w3-card" *ngFor="let driver of drivers">
+                            <div class="w3-container w3-center">
+                                <div class="col-md-2">
+                                    <img src="dist/assets/image/avatar2.png" alt="Avatar" class="avatar1" />
+                                </div>
+                                <div class="col-md-9" (click)="DriverClick(driver)" style="margin-left:5%">
+                                    <!-- <h4 data-ng-bind="group ? group.ContainerID : 'Ungrouped'"></h4> -->
+
+                                    <h6 class="text-left">{{driver.Name}}</h6>
+                                    <h6 class="text-left">{{driver.Email}}</h6>
+                                    <h6 class="text-left">{{driver.Status}}</h6>
+                                    <!--<hr *ngIf="!$last" class="hr-large">-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--</div>-->
+
+                    <br>
+
+                </div>
+
+
+                <!-- End Middle Column -->
+            </div>
+
+            <!-- Right Column -->
+            <div class="w3-col m3">
+                <div class="w3-card-2 w3-round w3-white w3-padding-small w3-center">
+                    <p>Trip History</p>
+                </div>
+                <br>
+                <div *ngFor="let event of containerHistory">
+                    <div class=" w3-card w3-round w3-white w3-container">
+                        <div class="w3-container-content">
+                            <p class="text-left w3-small ">TODO At Train Station(OSLO ØT)</p>
+                            <p class="text-left w3-small ">{{event.CurrentStatus}} : {{event.Name}}</p>
+                            <p *ngIf="event.Message!=''" class="text-left w3-small ">Message : {{event.Message}}</p>
+                            <p class="text-left w3-small ">{{event.EventTime|date :  "dd.MM.y  h:mm a"}}</p>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+
+
+                <!-- End Right Column -->
+            </div>
+
+            <!-- End Grid -->
+        </div>
+
+        <!-- End Page Container -->
+    </div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <h5></h5>
+    </div>
+
+</div>
+
+
+

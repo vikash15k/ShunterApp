@@ -1,0 +1,354 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Production|AnyCPU' ">
+    <IntermediateOutputPath>obj\Production</IntermediateOutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType></DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Production</OutputPath>
+    <DefineConstants></DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn></NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Development|AnyCPU' ">
+    <IntermediateOutputPath>obj\Development</IntermediateOutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType></DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Development</OutputPath>
+    <DefineConstants></DefineConstants>
+    <NoWarn></NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <StartAction>Project</StartAction>
+    <ExternalConsole>true</ExternalConsole>
+    <ApplicationURL>https://localhost:5001;http://localhost:5000</ApplicationURL>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <ItemGroup>
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\assets\image\desktop.ini" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\desktop.ini" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\assets\image\posten.png" />
+    <Content Remove="wwwroot\dist\assets\image\bring.png" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\assets\image\posten.png" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\assets\image\bring.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\assets\image\posten.png" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\assets\image\bring.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\assets\image\bring.png" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\posten.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\assets\image\bring.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\assets\image\posten.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\assets\image\posten.png" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\assets\image\bring.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\posten.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\assets\image\bring.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\assets\image\bring.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\posten.png" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\posten.png" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\assets\image\bring.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+    <Content Remove="wwwroot\dist\polyfills.js" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\dist\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\dist\main.js" />
+    <Content Remove="wwwroot\dist\runtime.js" />
+    <Content Remove="wwwroot\dist\styles.js" />
+    <Content Remove="wwwroot\dist\vendor.js" />
+    <Content Remove="wwwroot\dist\runtime.js.map" />
+    <Content Remove="wwwroot\dist\polyfills.js.map" />
+    <Content Remove="wwwroot\dist\main.js.map" />
+    <Content Remove="wwwroot\dist\styles.js.map" />
+    <Content Remove="wwwroot\dist\vendor.js.map" />
+    <Content Remove="wwwroot\dist\favicon.ico" />
+    <Content Remove="wwwroot\dist\assets\image\avatar2.png" />
+    <Content Remove="wwwroot\dist\assets\image\bring.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_parking.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_train.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_hub.png" />
+    <Content Remove="wwwroot\dist\assets\image\icon_unloading.png" />
+    <Content Remove="wwwroot\dist\assets\image\posten.png" />
+    <Content Remove="wwwroot\dist\assets\image\icons_loading.png" />
+    <Content Remove="wwwroot\dist\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RangerApp.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+    <Folder Include="Images\" />
+    <Folder Include="src\app\animations\" />
+  </ItemGroup>
+</Project>
